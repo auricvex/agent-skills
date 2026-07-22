@@ -1,0 +1,23 @@
+{
+  "skill_name": "rust-sdd-executor",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Execute the plan in sdd/plans/001-divide-function.md",
+      "expected_output": "Agent reads the plan file, validates all sections are present, marks it in_progress, implements the divide function with exact signature from the plan, adds doc comment, writes tests for success and division-by-zero cases, runs cargo fmt/clippy/test/check, fixes any failures, performs zero-gap check, marks plan completed, and updates INDEX.md.",
+      "files": ["sdd/plans/001-divide-function.md", "sdd/plans/INDEX.md"]
+    },
+    {
+      "id": 2,
+      "prompt": "continue",
+      "expected_output": "Agent detects sdd/plans/INDEX.md exists, reads it to find the first in_progress or next pending plan (with dependencies satisfied), resumes or starts that plan, implements all deliverables, runs verification, and marks it complete. If all plans are already completed, reports completion.",
+      "files": ["sdd/plans/INDEX.md"]
+    },
+    {
+      "id": 3,
+      "prompt": "Execute the next plan for my project",
+      "expected_output": "Agent reads INDEX.md, identifies the next pending plan whose dependencies are all completed, validates the plan file, marks it in_progress, implements deliverables one by one following the plan exactly, runs the full verification suite, performs zero-gap check, marks complete, updates INDEX.md, and suggests the next plan to execute.",
+      "files": ["sdd/plans/INDEX.md"]
+    }
+  ]
+}
