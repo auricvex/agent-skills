@@ -1,0 +1,23 @@
+{
+  "skill_name": "rust-sdd",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need to add a new `divide` function to the simple-crate library. Here's the spec:\n\n## Function: divide\n**Signature:** `pub fn divide(numerator: u64, denominator: u64) -> Result<u64, &'static str>`\n**Behavior:** Divides numerator by denominator. Returns `Err(\"division by zero\")` if denominator is 0.\n**Edge cases:** denominator == 0 returns Err. All other cases return Ok(result).\n**Acceptance criteria:** Must compile, pass clippy, include a doc comment, and have tests for both success and zero-division cases.",
+      "expected_output": "Agent discovers project structure, ingests the spec, creates a phased plan in sdd/plan.md (Phase 1: add divide function with tests, Phase 2: verification), implements the divide function with doc comment and tests in src/lib.rs, runs cargo fmt/clippy/test, and produces a zero-gap review in sdd/review.md.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "continue",
+      "expected_output": "Agent detects sdd/plan.md exists from a previous SDD session, reads it to find the in_progress or next pending phase, resumes implementation from that phase, and continues the SDD workflow without restarting from Phase 0.",
+      "files": ["sdd/plan.md"]
+    },
+    {
+      "id": 3,
+      "prompt": "I want to create a function that squares a number in the simple-crate library. Requirements: takes u64, returns u64, must have a doc comment and test.",
+      "expected_output": "Agent triggers the rust-sdd skill, discovers the project structure (single crate, conventions from CLAUDE.md), asks for or uses the provided spec, creates a phased plan, implements the function with doc comment and tests, runs verification, and produces a review.",
+      "files": []
+    }
+  ]
+}

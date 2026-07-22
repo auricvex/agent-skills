@@ -1,0 +1,18 @@
+# Target / build artifacts
+**/target/
+**/*.rs.bk
+
+# OS & Editor files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Node / npm
+node_modules/
+npm-debug.log*
+
+# Agent skills workspace / local test outputs
+*-workspace/
+sdd/

@@ -1,0 +1,17 @@
+{
+  "skill_name": "rust-code-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Please review the Rust code in simple-crate library src/lib.rs for code quality, correctness, documentation, and formatting.",
+      "expected_output": "Agent triggers rust-code-review skill, checks project context and automated tools (cargo fmt, cargo clippy, cargo test), evaluates code correctness, docs, naming, complexity, and project structure, and produces a structured Rust Code Review Report with findings categorized by severity.",
+      "files": ["rust-sdd/test-fixtures/simple-crate/src/lib.rs"]
+    },
+    {
+      "id": 2,
+      "prompt": "Can you do a code review on this AI-generated Rust snippet?\n```rust\npub fn process_data(data: Arc<Mutex<Vec<String>>>) -> String {\n    let d = data.lock().unwrap();\n    let mut result = String::new();\n    for i in 0..d.len() {\n        let item = d[i].clone();\n        result.push_str(&item.clone());\n        result.push_str(\",\");\n    }\n    return result;\n}\n```",
+      "expected_output": "Agent triggers rust-code-review skill, identifies LLM code smells (cargo-culted Arc<Mutex>, excessive .clone(), manual indexing instead of iterator, unhandled unwrap/panic risk, trailing comma), and provides refactoring recommendations with code examples.",
+      "files": []
+    }
+  ]
+}
