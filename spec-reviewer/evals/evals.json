@@ -1,0 +1,23 @@
+{
+  "skill_name": "spec-reviewer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Review the spec in docs/specs/api-spec.md for implementation blockers before we start coding.",
+      "expected_output": "Agent triggers spec-reviewer skill, reads the spec document, executes the 4-phase pipeline (review, verify, re-verify, present), and produces a structured Implementation Blocker Report with verdict, categorized blockers, and readiness assessment.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I've written a design doc for a new authentication system. Can you check if there are any blockers that would prevent implementation? The spec is at SPEC.md.",
+      "expected_output": "Agent triggers spec-reviewer skill, locates and reads SPEC.md, identifies candidate blockers related to auth system design (missing error codes, undefined token format, unspecified refresh flow, etc.), validates each finding through the verify and re-verify phases, and presents a structured report.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "We have multiple spec documents in the specs/ directory covering our microservices architecture. Before we hand these to the implementation team, can you audit them for blockers?",
+      "expected_output": "Agent triggers spec-reviewer skill, discovers and reads all spec documents in specs/, checks for cross-spec consistency (terminology, interface alignment, data model compatibility), identifies blockers including cross-spec inconsistencies, and produces a comprehensive blocker report.",
+      "files": []
+    }
+  ]
+}
